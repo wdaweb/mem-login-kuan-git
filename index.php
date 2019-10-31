@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+if(!empty($_SESSION['login'])){
+  header("location:member_center.php?do=come");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +17,18 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<?php
+if(!empty($_GET['s'])){
+  echo "註冊成功,請輸入帳密以登入";
+}
+
+if(!empty($_GET['err'])){
+  echo "<h2>帳號或密碼錯誤</h2>";
+}
+
+
+
+?>
   <h1>會員登入</h1>
 <form action="login_api.php" method="post"> 
 <table class="wrapper">
